@@ -13,7 +13,7 @@ var fs=require('fs');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '3443');
 app.set('port', port);
 app.set('secPort',port+443);
 /**
@@ -26,7 +26,8 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+server.listen(3443, '0.0.0.0', () => {
+});
 server.on('error', onError);
 server.on('listening', onListening);
 
@@ -37,7 +38,7 @@ var options = {
 
 var secureServer = https.createServer(options,app);
 
-secureServer.listen(app.get('secPort'), () => {
+secureServer.listen(app.get('secPort'),'0.0.0.0', () => {
   console.log('Server listening on port ',app.get('secPort'));
 });
 secureServer.on('error', onError);
