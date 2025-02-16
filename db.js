@@ -6,7 +6,7 @@ const sshConfig = {
   host: 'ec2-3-108-64-222.ap-south-1.compute.amazonaws.com',
   port: 22,
   username: 'ubuntu',
-  privateKey: fs.readFileSync('A:/LEPAKSHI/DbKey.ppk') // Ensure correct path
+  privateKey: fs.readFileSync('./DbKey.ppk') // Ensure correct path
 };
 
 const dbConfig = {
