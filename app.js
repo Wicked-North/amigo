@@ -26,14 +26,10 @@ initDB()
 var app = express();
 
 // Secure traffic only
-app.all('*', (req, res, next) => {
-  if (req.secure) {
-    return next();
-  }
-  else {
-    res.redirect(307, 'https://' + req.hostname + ':' + app.get('secPort') + req.url);
-  }
+app.listen(3443, '0.0.0.0', () => {
+  console.log(`App is running on port ${3443}`);
 });
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
