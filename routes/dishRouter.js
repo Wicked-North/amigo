@@ -5,8 +5,8 @@ const { queryDatabase } = require('../db'); // ✅ Ensure queryDatabase is impor
 // ✅ Define the GET route
 dishRouter.get('/', async (req, res, next) => {
   try {
-    const dishes = await queryDatabase('SELECT * FROM dishes'); // Fetch all dishes
-    res.status(200).json({ message: "Dishes API is working!" }); // Test response
+    const dishes = await queryDatabase('SELECT * FROM Persons'); // Fetch all dishes
+    res.status(200).json({ dishes }); // Test response
   } catch (err) {
     console.error('❌ Error:', err);
     next(err);
